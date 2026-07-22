@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MRI Fourier Lab</title>
-  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
   <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
@@ -28,6 +28,10 @@
       <summary><span><small>Want the formal version?</small><b>Show the maths</b></span><span class="maths-icon" aria-hidden="true">+</span></summary>
       <div class="maths-body">
         <header><p class="eyebrow">The equations under the experiment</p><h2>The discrete 2D Fourier transform</h2><p>The app treats the image as an \(N\times N\) grid. Here \(f(x,y)\) is a pixel brightness, while \(F(k_x,k_y)\) is one complex-valued spatial-frequency coefficient.</p></header>
+        <section class="selected-maths" aria-live="polite">
+          <div><span>Live selection</span><h3 id="selectedMathTitle">Centre coefficient \((0,0)\)</h3><p id="selectedMathCopy">Select a point in the Fourier spectrum to inspect its exact coefficient and wave.</p></div>
+          <div class="tex" id="selectedMathTex">\[F(0,0)=0\]</div>
+        </section>
         <article class="math-block"><div><span>01 · Analyse</span><h3>Pixels become frequency coefficients</h3><p>For every frequency coordinate \((k_x,k_y)\), multiply every pixel by a complex wave and add the results.</p></div><div class="tex">\[F(k_x,k_y)=\sum_{x=0}^{N-1}\sum_{y=0}^{N-1}f(x,y)e^{-i2\pi(\frac{k_x\,x}{N}+\frac{k_y\,y}{N})}\]</div></article>
         <article class="math-block"><div><span>02 · Read a coefficient</span><h3>Magnitude and phase play different roles</h3><p>Magnitude says how strongly a wave is present. Phase says where that wave aligns with the image.</p></div><div class="tex split">\[|F|=\sqrt{\operatorname{Re}(F)^2+\operatorname{Im}(F)^2}\] \[\phi=\operatorname{atan2}(\operatorname{Im}(F),\operatorname{Re}(F))\]</div></article>
         <article class="math-block"><div><span>03 · Apply the slider</span><h3>A binary mask keeps selected coefficients</h3><p>This demo keeps the largest magnitudes. The mask \(M\) is 1 for a retained coefficient and 0 otherwise.</p></div><div class="tex">\[\widetilde F(k_x,k_y)=M(k_x,k_y)F(k_x,k_y),\qquad M\in\{0,1\}\]</div></article>
@@ -78,6 +82,6 @@
 
     <p class="note">Educational analogy only — this app processes ordinary images and is not medical software.</p>
   </main>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
