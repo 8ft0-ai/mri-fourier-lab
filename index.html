@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MRI Fourier Lab</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
 <body>
   <main>
@@ -21,6 +23,19 @@
       </label>
       <button id="example" type="button">Reset example</button>
     </section>
+
+    <details class="maths">
+      <summary><span><small>Want the formal version?</small><b>Show the maths</b></span><span class="maths-icon" aria-hidden="true">+</span></summary>
+      <div class="maths-body">
+        <header><p class="eyebrow">The equations under the experiment</p><h2>The discrete 2D Fourier transform</h2><p>The app treats the image as an \(N\times N\) grid. Here \(f(x,y)\) is a pixel brightness, while \(F(k_x,k_y)\) is one complex-valued spatial-frequency coefficient.</p></header>
+        <article class="math-block"><div><span>01 · Analyse</span><h3>Pixels become frequency coefficients</h3><p>For every frequency coordinate \((k_x,k_y)\), multiply every pixel by a complex wave and add the results.</p></div><div class="tex">\[F(k_x,k_y)=\sum_{x=0}^{N-1}\sum_{y=0}^{N-1}f(x,y)e^{-i2\pi(\frac{k_x\,x}{N}+\frac{k_y\,y}{N})}\]</div></article>
+        <article class="math-block"><div><span>02 · Read a coefficient</span><h3>Magnitude and phase play different roles</h3><p>Magnitude says how strongly a wave is present. Phase says where that wave aligns with the image.</p></div><div class="tex split">\[|F|=\sqrt{\operatorname{Re}(F)^2+\operatorname{Im}(F)^2}\] \[\phi=\operatorname{atan2}(\operatorname{Im}(F),\operatorname{Re}(F))\]</div></article>
+        <article class="math-block"><div><span>03 · Apply the slider</span><h3>A binary mask keeps selected coefficients</h3><p>This demo keeps the largest magnitudes. The mask \(M\) is 1 for a retained coefficient and 0 otherwise.</p></div><div class="tex">\[\widetilde F(k_x,k_y)=M(k_x,k_y)F(k_x,k_y),\qquad M\in\{0,1\}\]</div></article>
+        <article class="math-block"><div><span>04 · Reconstruct</span><h3>The inverse transform adds the waves</h3><p>Each retained complex wave is added back together. The real part becomes the displayed grayscale reconstruction.</p></div><div class="tex">\[\hat f(x,y)=\frac{1}{N^2}\sum_{k_x=0}^{N-1}\sum_{k_y=0}^{N-1}\widetilde F(k_x,k_y)e^{i2\pi(\frac{k_x\,x}{N}+\frac{k_y\,y}{N})}\]</div></article>
+        <article class="math-block"><div><span>05 · Measure loss</span><h3>RMSE compares every reconstructed pixel</h3><p>Zero means a perfect reconstruction. The live value is measured in grayscale levels from 0 to 255.</p></div><div class="tex">\[\operatorname{RMSE}=\sqrt{\frac{1}{N^2}\sum_{x=0}^{N-1}\sum_{y=0}^{N-1}\left(f(x,y)-\hat f(x,y)\right)^2}\]</div></article>
+        <aside><b>MRI nuance</b><p>In MRI, the scanner directly measures complex k-space data rather than first making an image and transforming it. Receiver coils, noise, non-Cartesian trajectories, partial sampling, and reconstruction algorithms add important layers beyond these equations.</p></aside>
+      </div>
+    </details>
 
     <section class="grid">
       <figure><canvas id="source" width="128" height="128"></canvas><figcaption><b>1. Image</b><span>Brightness at each position</span></figcaption></figure>
@@ -63,6 +78,6 @@
 
     <p class="note">Educational analogy only — this app processes ordinary images and is not medical software.</p>
   </main>
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>
