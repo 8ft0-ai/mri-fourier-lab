@@ -28,6 +28,33 @@
       <figure><canvas id="reconstruction" width="128" height="128"></canvas><figcaption><b>3. Reconstruction</b><span id="reconLabel">Using the strongest 12%</span></figcaption></figure>
     </section>
 
+    <section class="lesson" aria-labelledby="lesson-title">
+      <div class="lesson-head">
+        <div><p class="eyebrow">Guided learning mode</p><h2 id="lesson-title">From pixels to k-space and back</h2></div>
+        <p>Follow the four steps, then click anywhere in the Fourier spectrum above to inspect one frequency.</p>
+      </div>
+      <nav class="steps" aria-label="Fourier transform lesson">
+        <button class="step active" data-step="0"><span>01</span>Start with pixels</button>
+        <button class="step" data-step="1"><span>02</span>Measure waves</button>
+        <button class="step" data-step="2"><span>03</span>Keep information</button>
+        <button class="step" data-step="3"><span>04</span>Reconstruct</button>
+      </nav>
+      <article class="lesson-card">
+        <div><p id="lesson-kicker">The spatial domain</p><h3 id="lesson-heading">An image is a grid of brightness values</h3><p id="lesson-copy">Each pixel answers “how bright is this location?” The Fourier transform asks a different question: “how much of every possible repeating pattern is present?”</p></div>
+        <div class="equation"><span id="equation-label">A pixel value</span><strong id="equation">f(x, y)</strong></div>
+      </article>
+      <div class="live-readout" aria-live="polite">
+        <div><span>Coefficients used</span><strong id="coefficientCount">—</strong></div>
+        <div><span>Data discarded</span><strong id="discardedValue">—</strong></div>
+        <div><span>Reconstruction error</span><strong id="errorValue">—</strong></div>
+      </div>
+    </section>
+
+    <section class="microscope" aria-labelledby="microscope-title">
+      <div><p class="eyebrow">Frequency microscope</p><h2 id="microscope-title">One dot represents one wave pattern</h2><p>Click the spectrum. Position tells you the wave’s direction and repetition rate; brightness tells you how strongly it contributes to this image.</p><dl><div><dt>Horizontal cycles</dt><dd id="freqX">0</dd></div><div><dt>Vertical cycles</dt><dd id="freqY">0</dd></div><div><dt>Strength</dt><dd id="freqStrength">100%</dd></div></dl></div>
+      <figure class="pattern"><canvas id="pattern" width="128" height="128"></canvas><figcaption><b id="patternTitle">Constant brightness</b><span id="patternCopy">The centre point is the average image brightness (zero frequency).</span></figcaption></figure>
+    </section>
+
     <section class="explain">
       <div><span>Low frequencies</span><h2>Overall shape and contrast</h2><p>Near the spectrum centre, slowly changing patterns describe broad structure.</p></div>
       <div><span>High frequencies</span><h2>Edges and fine detail</h2><p>Farther from the centre, rapidly changing patterns sharpen boundaries and texture.</p></div>
