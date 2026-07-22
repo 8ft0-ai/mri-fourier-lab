@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MRI Fourier Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Interactive signal lab</p>
+      <h1>See an image as frequencies</h1>
+      <p class="lede">MRI scanners collect spatial-frequency measurements called <em>k-space</em>. Explore the same Fourier idea with an ordinary grayscale image.</p>
+    </header>
+
+    <section class="controls" aria-label="Image controls">
+      <label class="upload">Choose an image <input id="file" type="file" accept="image/*"></label>
+      <label>Coefficients kept <strong id="keepValue">12%</strong>
+        <input id="keep" type="range" min="1" max="100" value="12">
+      </label>
+      <button id="example" type="button">Reset example</button>
+    </section>
+
+    <section class="grid">
+      <figure><canvas id="source" width="128" height="128"></canvas><figcaption><b>1. Image</b><span>Brightness at each position</span></figcaption></figure>
+      <figure><canvas id="spectrum" width="128" height="128"></canvas><figcaption><b>2. Fourier spectrum</b><span>Brightness shows frequency strength</span></figcaption></figure>
+      <figure><canvas id="reconstruction" width="128" height="128"></canvas><figcaption><b>3. Reconstruction</b><span id="reconLabel">Using the strongest 12%</span></figcaption></figure>
+    </section>
+
+    <section class="explain">
+      <div><span>Low frequencies</span><h2>Overall shape and contrast</h2><p>Near the spectrum centre, slowly changing patterns describe broad structure.</p></div>
+      <div><span>High frequencies</span><h2>Edges and fine detail</h2><p>Farther from the centre, rapidly changing patterns sharpen boundaries and texture.</p></div>
+      <div><span>MRI connection</span><h2>Measurements before pixels</h2><p>MRI receives complex-valued k-space samples. An inverse Fourier transform turns those measurements into an image. Real MRI also involves coils, pulse sequences, sampling trajectories, noise, and reconstruction corrections.</p></div>
+    </section>
+
+    <p class="note">Educational analogy only — this app processes ordinary images and is not medical software.</p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
