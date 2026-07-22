@@ -47,5 +47,25 @@ figcaption span { color:#91aaa2; font-size:.9rem; }
 .microscope dd { margin:4px 0 0; font-weight:800; }
 .pattern { max-width:360px; justify-self:end; }
 .pattern canvas,#spectrum { cursor:crosshair; }
+.maths { margin-top:18px; border:1px solid #2d4c43; border-radius:18px; background:#0b1815; overflow:hidden; }
+.maths summary { display:flex; justify-content:space-between; align-items:center; padding:20px 24px; cursor:pointer; list-style:none; background:#10231e; }
+.maths summary::-webkit-details-marker { display:none; }
+.maths summary span:first-child { display:grid; gap:3px; }
+.maths summary small { color:#829a93; }
+.maths summary b { font-size:1.15rem; }
+.maths-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:#65e6b4; color:#07110f; font-size:1.5rem; transition:transform .2s; }
+.maths[open] .maths-icon { transform:rotate(45deg); }
+.maths-body { padding:28px; }
+.maths-body>header { max-width:760px; margin-bottom:28px; }
+.maths-body>header h2 { font-size:clamp(1.7rem,4vw,2.7rem); margin:.25rem 0; }
+.maths-body>header p:last-child,.math-block p,.maths aside p { color:#9fb3ad; line-height:1.6; }
+.math-block { display:grid; grid-template-columns:.8fr 1.2fr; gap:28px; align-items:center; padding:24px 0; border-top:1px solid #29463e; }
+.math-block span { color:#65e6b4; text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; font-weight:800; }
+.math-block h3 { margin:.5rem 0; }
+.tex { min-width:0; overflow-x:auto; padding:20px; border-radius:12px; background:#07110f; color:#effbf7; }
+.tex mjx-container { margin:0 !important; }
+.maths aside { border-left:3px solid #65e6b4; padding:2px 0 2px 18px; margin-top:22px; }
+.maths aside p { margin-bottom:0; }
 @media (max-width:760px) { main{padding:36px 0}.grid,.explain{grid-template-columns:1fr}.controls{align-items:stretch;flex-direction:column}.controls label{justify-content:space-between} }
 @media (max-width:760px) { .lesson-head,.microscope,.lesson-card{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.live-readout{grid-template-columns:1fr}.equation{border-left:0;border-top:1px solid #29463e}.pattern{justify-self:stretch;max-width:none}.microscope dl{flex-wrap:wrap} }
+@media (max-width:760px) { .math-block{grid-template-columns:1fr}.maths-body{padding:20px}.tex{font-size:.78rem} }
