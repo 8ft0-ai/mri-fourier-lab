@@ -21,4 +21,31 @@ figcaption span { color:#91aaa2; font-size:.9rem; }
 .explain h2 { font-size:1.15rem; margin:.6rem 0; }
 .explain p,.note { color:#9fb3ad; line-height:1.55; }
 .note { border-top:1px solid #24463c; padding-top:20px; font-size:.85rem; }
+.lesson,.microscope { margin-top:52px; padding:28px; border:1px solid #2d4c43; border-radius:22px; background:#0b1815; }
+.lesson-head,.microscope { display:grid; grid-template-columns:1.2fr 1fr; gap:36px; align-items:start; }
+.lesson-head h2,.microscope h2 { margin:.25rem 0; font-size:clamp(1.7rem,4vw,2.7rem); }
+.lesson-head>p,.microscope>div>p { color:#9fb3ad; line-height:1.6; }
+.steps { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:28px 0 14px; }
+.step { text-align:left; border:1px solid #29463e; background:#10231e; color:#a9bcb6; padding:14px; border-radius:12px; cursor:pointer; }
+.step span { display:block; color:#65e6b4; font-size:.7rem; margin-bottom:6px; }
+.step.active { background:#65e6b4; color:#07110f; border-color:#65e6b4; }
+.step.active span { color:#15392f; }
+.lesson-card { display:grid; grid-template-columns:1.5fr .7fr; gap:28px; align-items:center; background:#07110f; padding:24px; border-radius:14px; min-height:190px; }
+.lesson-card h3 { font-size:1.45rem; margin:.25rem 0 .6rem; }
+.lesson-card p { color:#9fb3ad; line-height:1.55; }
+.lesson-card>div>p:first-child { color:#65e6b4; text-transform:uppercase; letter-spacing:.1em; font-size:.7rem; font-weight:800; }
+.equation { text-align:center; border-left:1px solid #29463e; padding:30px 10px; }
+.equation span { display:block; color:#829a93; font-size:.8rem; }
+.equation strong { display:block; font:2rem Georgia,serif; margin-top:8px; }
+.live-readout { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:14px; }
+.live-readout div { padding:16px; border-radius:12px; background:#10231e; }
+.live-readout span { display:block; color:#829a93; font-size:.78rem; }
+.live-readout strong { font-size:1.3rem; }
+.microscope dl { display:flex; gap:24px; margin:24px 0 0; }
+.microscope dl div { border-left:2px solid #65e6b4; padding-left:10px; }
+.microscope dt { color:#829a93; font-size:.72rem; }
+.microscope dd { margin:4px 0 0; font-weight:800; }
+.pattern { max-width:360px; justify-self:end; }
+.pattern canvas,#spectrum { cursor:crosshair; }
 @media (max-width:760px) { main{padding:36px 0}.grid,.explain{grid-template-columns:1fr}.controls{align-items:stretch;flex-direction:column}.controls label{justify-content:space-between} }
+@media (max-width:760px) { .lesson-head,.microscope,.lesson-card{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.live-readout{grid-template-columns:1fr}.equation{border-left:0;border-top:1px solid #29463e}.pattern{justify-self:stretch;max-width:none}.microscope dl{flex-wrap:wrap} }
