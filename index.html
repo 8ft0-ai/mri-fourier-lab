@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MRI Fourier Lab</title>
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
@@ -43,14 +43,14 @@
 
     <section class="grid">
       <figure><canvas id="source" width="128" height="128"></canvas><figcaption><b>1. Image</b><span>Brightness at each position</span></figcaption></figure>
-      <figure><canvas id="spectrum" width="128" height="128"></canvas><figcaption><b>2. Fourier spectrum</b><span>Brightness shows frequency strength</span></figcaption></figure>
+      <figure><canvas id="spectrum" width="128" height="128" tabindex="0" aria-label="Interactive Fourier spectrum" aria-describedby="spectrumInstructions"></canvas><p id="spectrumStatus" class="sr-only" aria-live="polite"></p><figcaption><b>2. Fourier spectrum</b><span id="spectrumInstructions">Click a point, or focus the spectrum and use the arrow keys. Press Home to return to the centre.</span></figcaption></figure>
       <figure><canvas id="reconstruction" width="128" height="128"></canvas><figcaption><b>3. Reconstruction</b><span id="reconLabel">Using the strongest 12%</span></figcaption></figure>
     </section>
 
     <section class="lesson" aria-labelledby="lesson-title">
       <div class="lesson-head">
         <div><p class="eyebrow">Guided learning mode</p><h2 id="lesson-title">From pixels to k-space and back</h2></div>
-        <p>Follow the four steps, then click anywhere in the Fourier spectrum above to inspect one frequency.</p>
+        <p>Follow the four steps, then select a point in the Fourier spectrum above to inspect one frequency.</p>
       </div>
       <nav class="steps" aria-label="Fourier transform lesson">
         <button class="step active" data-step="0"><span>01</span>Start with pixels</button>
@@ -70,7 +70,7 @@
     </section>
 
     <section class="microscope" aria-labelledby="microscope-title">
-      <div><p class="eyebrow">Frequency microscope</p><h2 id="microscope-title">One dot represents one wave pattern</h2><p>Click the spectrum. Position tells you the wave’s direction and repetition rate; brightness tells you how strongly it contributes to this image.</p><dl><div><dt>Horizontal cycles</dt><dd id="freqX">0</dd></div><div><dt>Vertical cycles</dt><dd id="freqY">0</dd></div><div><dt>Strength</dt><dd id="freqStrength">100%</dd></div></dl></div>
+      <div><p class="eyebrow">Frequency microscope</p><h2 id="microscope-title">One dot represents one wave pattern</h2><p>Select the spectrum with a pointer or keyboard. Position tells you the wave’s direction and repetition rate; brightness tells you how strongly it contributes to this image.</p><dl><div><dt>Horizontal cycles</dt><dd id="freqX">0</dd></div><div><dt>Vertical cycles</dt><dd id="freqY">0</dd></div><div><dt>Strength</dt><dd id="freqStrength">100%</dd></div></dl></div>
       <figure class="pattern"><canvas id="pattern" width="128" height="128"></canvas><figcaption><b id="patternTitle">Constant brightness</b><span id="patternCopy">The centre point is the average image brightness (zero frequency).</span></figcaption></figure>
     </section>
 
@@ -82,6 +82,6 @@
 
     <p class="note">Educational analogy only — this app processes ordinary images and is not medical software.</p>
   </main>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
