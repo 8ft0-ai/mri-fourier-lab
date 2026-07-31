@@ -47,6 +47,8 @@ figcaption span { color:#91aaa2; font-size:.9rem; }
 .microscope dd { margin:4px 0 0; font-weight:800; }
 .pattern { max-width:360px; justify-self:end; }
 .pattern canvas,#spectrum { cursor:crosshair; }
+#spectrum:focus-visible { outline:3px solid #65e6b4; outline-offset:4px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 .maths { margin:0 0 30px; border:1px solid #2d4c43; border-radius:18px; background:#0b1815; overflow:hidden; }
 .maths summary { display:flex; justify-content:space-between; align-items:center; padding:22px 28px; cursor:pointer; list-style:none; background:#10231e; }
 .maths summary::-webkit-details-marker { display:none; }
